@@ -1,5 +1,8 @@
 package core.basesyntax;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Palindrome {
 
     /**
@@ -21,6 +24,13 @@ public class Palindrome {
      * <p>Результат: true</p>
      */
     public boolean isPalindrome(String text) {
-        return false;
+        StringBuilder stringUnsigned = new StringBuilder();
+        Pattern pattern = Pattern.compile("[a-z0-9]", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(text);
+        while (matcher.find()) {
+            stringUnsigned.append(matcher.group());
+        }
+
+        return stringUnsigned.toString().equalsIgnoreCase(stringUnsigned.reverse().toString());
     }
 }
