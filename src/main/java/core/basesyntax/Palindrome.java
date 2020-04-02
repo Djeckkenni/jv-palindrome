@@ -30,7 +30,6 @@ public class Palindrome {
         while (matcher.find()) {
             stringUnsigned.append(matcher.group());
         }
-
         return stringUnsigned.toString().equalsIgnoreCase(stringUnsigned.reverse().toString());
     }
 }
